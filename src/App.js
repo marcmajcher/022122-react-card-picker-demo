@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import cardData from './cardData';
+import CardDisplay from './CardDisplay';
+import CardPicker from './CardPicker';
 
 function App() {
+  const [cardIndex, setCardIndex] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <CardDisplay cardName={cardData[cardIndex]} />
+      <CardPicker cardData={cardData} handleCardChange={setCardIndex} />
     </div>
   );
 }
